@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface ICard {
     title: string;
@@ -16,7 +17,7 @@ const PageCard = ({title}: ICard) => {
         backgroundColor:"lightgray"
       }}
     >
-      {title}
+      <Link to={title.toLowerCase()}>{title}</Link>
     </Card>
   )
 }
