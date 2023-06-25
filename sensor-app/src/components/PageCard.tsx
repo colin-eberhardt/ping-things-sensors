@@ -8,17 +8,19 @@ interface ICard {
 
 const PageCard = ({title}: ICard) => {
   return (
-    <Card
-      style={{
-        height:"100px",
-        width:"60%",
-        padding: "2em",
-        margin: "1em",
-        backgroundColor:"lightgray"
-      }}
-    >
-      <Link to={title.toLowerCase()}>{title}</Link>
-    </Card>
+    <Link to={title.toLowerCase()}>
+      <Card
+        style={{
+          height:"100px",
+          width:"60%",
+          padding: "2em",
+          margin: "1em",
+          backgroundColor:"lightgray"
+        }}
+      >
+        <h2>{title}</h2>
+      </Card>
+    </Link>
   )
 }
 
