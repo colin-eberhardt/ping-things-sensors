@@ -36,8 +36,6 @@ const PageHeader = () => {
                 <Popover
                     open={isModalVisible}
                     onClose={() => toggleModal(isModalVisible)}
-                    // anchorEl={anchorEl}
-                    // onClose={handleClose}
                     anchorOrigin={{
                         vertical: 'top',
                         horizontal: 'right',

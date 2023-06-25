@@ -1,15 +1,14 @@
 import React from 'react';
-import { Grid } from '@mui/material';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import PageCard from './components/PageCard';
-import PageHeader from './components/PageHeader';
 import './App.css';
 import Sensors from './pages/Sensors';
 import Main from './pages/Main';
 import WorkInProgress from './pages/WorkInProgress';
+import SensorView from './pages/Sensors/SensorView';
+import PageHeader from './components/PageHeader';
 
 const router = createBrowserRouter([
   {
@@ -22,13 +21,15 @@ const router = createBrowserRouter([
     element: <Sensors />,
   },
   {
-
+    path: "/sensors/:id",
+    element: <SensorView />,
   }
 ]);
 
 function App() {
   return (
     <div className="App">
+      <PageHeader />
       <RouterProvider router={router} />
     </div>
   );
