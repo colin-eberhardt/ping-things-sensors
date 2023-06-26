@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import { Paper, TableContainer, Table, TableRow, TableCell, TableHead, TableBody, Button, Modal, Box, TextField, Typography, Alert, AlertColor, IconButton, Fab } from '@mui/material';
+import { Paper, TableContainer, Table, TableRow, TableCell, TableHead, TableBody, Button, Modal, Box, TextField, Typography, Alert, AlertColor, IconButton, Fab, Chip } from '@mui/material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import StarIcon from '@mui/icons-material/Star';
 import EditIcon from "@mui/icons-material/Edit";
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import AddIcon from '@mui/icons-material/Add';
 import { Link } from 'react-router-dom';
 import { ISensorDataItem, sensorData } from '../../data/sensorData';
 import SensorContext from '../../context/SensorContext';
-import SensorView from './SensorView';
-import { sensorDataReducer } from '../../reducers/sensorDataReducer';
+import { sensorDataReducer, SensorDataReducerActionTypes } from '../../reducers/sensorDataReducer';
+import { type } from 'os';
 
 interface IEditModal {
   isOpen: boolean;
@@ -28,7 +28,7 @@ const messageMap:IKeyMap = {
 };
 
 const Sensors = () => {
-  const { sensorsState } = useContext(SensorContext)
+  const { sensorsState, dispatch } = useContext(SensorContext)
   const [showMoodal, setShowModal] = useState(false);
 
   const toggleModal = (prev:boolean) => setShowModal(!prev)
@@ -58,7 +58,9 @@ const Sensors = () => {
                         <TableCell component="th" scope="row">
                           <Link to={`/sensors/${row.id}`}>{row.name}</Link>
                         </TableCell>
-                        <TableCell align="center">{row.tags}</TableCell>
+                        <TableCell align="center">
+                          {row.tags.map((tag:string) => <Chip label={tag} /> )}
+                        </TableCell>
                         <TableCell align="center">{row.location}</TableCell>                    
                         <TableCell align="center" sx={{width:"20em"}}><Alert severity={row.issueMsg as AlertColor}>{messageMap[row.issueMsg]}</Alert></TableCell>
                         <TableCell align="center">
@@ -68,12 +70,9 @@ const Sensors = () => {
                               Edit
                             </Fab>
                           </Link>
-                          <Fab size="small" aria-label="edit" variant='extended' sx={{backgroundColor: "white", color:"orange", boxShadow:"none"}}>
-                              <VisibilityOffIcon sx={{paddingRight:"5px"}}/> 
-                              Hide
-                          </Fab>
                           <IconButton 
                             sx={{color: row.favorite ? "orange" : "lightgrey"}}
+                            onClick={() => dispatch({type: SensorDataReducerActionTypes.UPDATE_FAVORITE, id: row.id, payload: !row.favorite})}
                           >
                             {row.favorite ? <StarIcon/> : <StarBorderIcon/>}
                           </IconButton>
@@ -84,6 +83,12 @@ const Sensors = () => {
             </TableBody>
             </Table>
         </TableContainer>
+        <Link to={'/sensors/add'}>
+          <Fab variant='extended' onClick={() => dispatch({type: SensorDataReducerActionTypes.ADD_SENSOR})}>
+            <AddIcon/>
+            Add Sensor
+          </Fab>
+        </Link>
     </> 
   )
 }

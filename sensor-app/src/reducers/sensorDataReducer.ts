@@ -10,8 +10,21 @@ export enum SensorDataReducerActionTypes {
     UPDATE_NAME = "update name",
     UPDATE_LOCATION = "update location",
     UPDATE_LATITUDE = "update latitude",
-    UPDATE_LONGITUDE = "update longitude"
+    UPDATE_LONGITUDE = "update longitude",
+    UPDATE_FAVORITE = "update favorite",
+    UPDATE_TAGS = "update tags",
+    ADD_SENSOR = "add sensor"
 };
+
+const newSensorState =     {    
+    id: Math.random().toString(),
+    name: "",
+    location: "",
+    latitude: "",
+    longitude: "",
+    tags:  [],
+    favorite: false,
+}
 
 
 export const sensorDataReducer = (sensorsState:any, action:ISensorDataReducerAction) => {
@@ -52,7 +65,18 @@ export const sensorDataReducer = (sensorsState:any, action:ISensorDataReducerAct
                     return record
                 }
             });
-    default: 
-        return sensorsState
+        case SensorDataReducerActionTypes.UPDATE_FAVORITE: 
+            return sensorsState.map((record:ISensorDataItem) => {
+                if(record.id === action.id){
+                    return { ...record, favorite: action.payload}
+                }
+                else{
+                    return record
+                }
+            });
+        case SensorDataReducerActionTypes.ADD_SENSOR: 
+            return [...sensorsState, newSensorState];
+        default: 
+            return sensorsState
     }
 };

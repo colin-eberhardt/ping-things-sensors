@@ -24,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/sensors/:id/edit",
     element: <SensorView />,
+  },
+  {
+    path: "/sensors/add",
+    element: <SensorView />,
   }
 ]);
 

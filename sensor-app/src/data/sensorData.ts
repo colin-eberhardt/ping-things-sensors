@@ -5,7 +5,7 @@
         location: "New York, New York",
         latitude: "40.7128° N",
         longitude: "74.0060° W",
-        tags:  ["foo", "bar", "baz"],
+        tags:  ["foo ", "bar ", "baz "],
         issueMsg: "error",
         favorite: true,
     },
@@ -15,7 +15,7 @@
         location: "Alexandria, Virginia",
         latitude: "38.8048° N",
         longitude: "77.0469° W",
-        tags: ["some", "other", "tag"],
+        tags: ["some ", "other ", "tag"],
         issueMsg: "warning",
         favorite: true
     },
@@ -35,7 +35,7 @@
         location: "Dallas, Texas",
         latitude: "32.7767° N", 
         longitude: "96.7970° W",
-        tags: ["tag"], 
+        tags: ["tag "], 
         issueMsg: "success", 
         favorite: false
     },
@@ -45,7 +45,7 @@
         location: "Philadelphia, Pennsylvania",
         latitude: "39.9526° N",
         longitude: "75.1652° W",
-        tags: ["some", "tag"],
+        tags: ["some ", "tag "],
         issueMsg: "warning",
         favorite: false
     }

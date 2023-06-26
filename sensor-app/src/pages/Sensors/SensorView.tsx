@@ -22,6 +22,8 @@ const SensorView = () => {
                 return SensorDataReducerActionTypes.UPDATE_LATITUDE;
             case "Longitude":
                 return SensorDataReducerActionTypes.UPDATE_LONGITUDE;
+            case "Tags":
+                return SensorDataReducerActionTypes.UPDATE_TAGS;
             default:
                 return SensorDataReducerActionTypes.UPDATE_NAME
         }
