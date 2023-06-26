@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Box, AppBar, IconButton, Toolbar, Typography, Button, Drawer, Popover } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 const PageHeader = () => {
     const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -46,7 +47,7 @@ const PageHeader = () => {
                     <li>Logout</li>
                 </Popover>
             </Toolbar>
-            </AppBar>
+            </AppBar>        
         </Box>
     )
 }

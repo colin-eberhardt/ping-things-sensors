@@ -7,7 +7,7 @@ const cardOptions = ["Issues", "Notifications", "Exploration", "Sensors"]
 const Main = () => {
   return (
     <>
-        <Grid container spacing={0}>
+        <Grid container spacing={0} sx={{marginTop:"5em"}}>
         {cardOptions.map((cardOption:string) => {
             return (
                 <Grid item xs={8}>
