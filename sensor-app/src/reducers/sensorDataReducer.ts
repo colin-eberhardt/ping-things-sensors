@@ -1,7 +1,8 @@
 import { ISensorDataItem } from "../data/sensorData";
 
-interface ISensorDataReducerAction {
+export interface ISensorDataReducerAction {
     type: SensorDataReducerActionTypes,
+    id: number;
     payload: string;
 }
 
@@ -10,20 +11,48 @@ export enum SensorDataReducerActionTypes {
     UPDATE_LOCATION = "update location",
     UPDATE_LATITUDE = "update latitude",
     UPDATE_LONGITUDE = "update longitude"
-}
+};
 
-export const sensorDataReducer = (sensorState:any, action:ISensorDataReducerAction) => {
-    console.log(sensorState)
+
+export const sensorDataReducer = (sensorsState:any, action:ISensorDataReducerAction) => {
     switch(action.type){
         case SensorDataReducerActionTypes.UPDATE_NAME: 
-            return {...sensorState, name: action.payload}
+            return sensorsState.map((record:ISensorDataItem) => {
+                if(record.id === action.id){
+                    return { ...record, name: action.payload}
+                }
+                else{
+                    return record
+                }
+            });
         case SensorDataReducerActionTypes.UPDATE_LOCATION: 
-            return {...sensorState, location: action.payload}
+            return sensorsState.map((record:ISensorDataItem) => {
+                if(record.id === action.id){
+                    return { ...record, location: action.payload}
+                }
+                else{
+                    return record
+                }
+            });
         case SensorDataReducerActionTypes.UPDATE_LATITUDE: 
-            return {...sensorState, latitude: action.payload}
+            return sensorsState.map((record:ISensorDataItem) => {
+                if(record.id === action.id){
+                    return { ...record, latitude: action.payload}
+                }
+                else{
+                    return record
+                }
+            });
         case SensorDataReducerActionTypes.UPDATE_LONGITUDE: 
-            return {...sensorState, longitude: action.payload}
+            return sensorsState.map((record:ISensorDataItem) => {
+                if(record.id === action.id){
+                    return { ...record, longitude: action.payload}
+                }
+                else{
+                    return record
+                }
+            });
     default: 
-        return sensorState
+        return sensorsState
     }
 };

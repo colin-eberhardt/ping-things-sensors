@@ -1,6 +1,6 @@
  export const sensorData = [
     {    
-        id: 0,
+        id: "0",
         name: "Sensor 1",
         location: "New York, New York",
         latitude: "40.7128° N",
@@ -10,7 +10,7 @@
         favorite: true,
     },
     {    
-        id: 1,
+        id: "1",
         name: "Sensor 2",
         location: "Alexandria, Virginia",
         latitude: "38.8048° N",
@@ -20,7 +20,7 @@
         favorite: true
     },
     {    
-        id: 3, 
+        id: "2", 
         name: 'Sensor 3',
         location: "Los Angeles, California", 
         latitude: "34.0522° N", 
@@ -30,7 +30,7 @@
         favorite: false
     },
     {
-        id: 4,
+        id: "3",
         name: 'Sensor 4', 
         location: "Dallas, Texas",
         latitude: "32.7767° N", 
@@ -40,7 +40,7 @@
         favorite: false
     },
     {
-        id: 5, 
+        id: "4", 
         name: 'Sensor 5',
         location: "Philadelphia, Pennsylvania",
         latitude: "39.9526° N",
