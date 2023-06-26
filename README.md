@@ -1,6 +1,6 @@
 # To Use
 
-Essentially, just run `yarn start` in the `sensor-app` dir.
+Essentially, just run `yarn istall` and `yarn start` in the `sensor-app` dir.
 
 Once the app is up, you'll see a very basic home page. 
 
