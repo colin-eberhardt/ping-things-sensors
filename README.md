@@ -9,7 +9,7 @@ Go to `Sensors` to view some sensor metadata. From this componenet, you can edit
 
 # Next Steps
 
-Below are some of the thing I would like to implemenet with more time 
+Below are some of the things I would like to implemenet with more time 
 
 ## Tests 
 
