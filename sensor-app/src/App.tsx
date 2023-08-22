@@ -10,6 +10,8 @@ import WorkInProgress from './pages/WorkInProgress';
 import SensorView from './pages/Sensors/SensorView';
 import PageHeader from './components/PageHeader';
 import { SensorContextProvider } from './context/SensorContext';
+import SensorViewAdd from './pages/Sensors/SensorViewAdd';
+
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/sensors/add",
-    element: <SensorView />,
+    element: <SensorViewAdd />,
   }
 ]);
 

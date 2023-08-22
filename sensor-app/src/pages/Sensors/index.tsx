@@ -84,7 +84,7 @@ const Sensors = () => {
             </Table>
         </TableContainer>
         <Link to={'/sensors/add'}>
-          <Fab variant='extended' onClick={() => dispatch({type: SensorDataReducerActionTypes.ADD_SENSOR})}>
+          <Fab variant='extended'>
             <AddIcon/>
             Add Sensor
           </Fab>

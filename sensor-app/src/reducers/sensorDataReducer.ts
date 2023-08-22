@@ -3,7 +3,7 @@ import { ISensorDataItem } from "../data/sensorData";
 export interface ISensorDataReducerAction {
     type: SensorDataReducerActionTypes,
     id: number;
-    payload: string;
+    payload: any; 
 }
 
 export enum SensorDataReducerActionTypes {
@@ -75,7 +75,7 @@ export const sensorDataReducer = (sensorsState:any, action:ISensorDataReducerAct
                 }
             });
         case SensorDataReducerActionTypes.ADD_SENSOR: 
-            return [...sensorsState, newSensorState];
+            return [...sensorsState, action.payload];
         default: 
             return sensorsState
     }
